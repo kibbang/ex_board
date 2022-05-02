@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +27,11 @@ Route::group(['prefix' => 'auth'], function () {
 
     // 인증 완료 되었을 때
     Route::middleware('auth:api')->group(function() {
-        Route::get('user', [AuthController::class, 'details']);
+//        Route::get('user', [UserController::class, 'details']);
         Route::post('logout', [AuthController::class, 'logout']);
     });
+});
+
+Route::group(['prefix'=>'user'], function () {
+    Route::get('info', [UserController::class, 'details']);
 });
