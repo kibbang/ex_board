@@ -34,4 +34,5 @@ Route::group(['prefix' => 'auth'], function () {
 
 Route::group(['prefix'=>'user'], function () {
     Route::get('info', [UserController::class, 'details']);
+    Route::post('{id}', [UserController::class, 'update']);
 });
