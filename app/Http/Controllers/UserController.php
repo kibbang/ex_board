@@ -50,4 +50,17 @@ class UserController extends Controller
 
         return response()->json(['message' => 'User Info was Successfully Updated']);
     }
+
+    /**
+     * User Delete
+     *
+     * @param $id
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function delete($id) {
+        User::find($id)->delete();
+
+        return response()->json(['message' => 'User was Successfully Deleted']);
+    }
 }
