@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,3 +38,6 @@ Route::group(['prefix'=>'user'], function () {
     Route::post('{id}', [UserController::class, 'update']);
     Route::delete('delete/{id}', [UserController::class, 'delete']);
 });
+
+// Post
+Route::resource('posts', PostController::class);
