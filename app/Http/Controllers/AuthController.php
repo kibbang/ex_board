@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use http\Env\Response;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -14,6 +13,10 @@ class AuthController extends Controller
      * Register
      *
      * @param Illuminate\Http\Request $request
+     *
+     * @bodyParam email string
+     * @bodyParam name string
+     * @bodyParam password string
      *
      * @return \Illuminate\Http\JsonResponse
      */
@@ -70,6 +73,9 @@ class AuthController extends Controller
      *
      * @param  Illuminate\Http\Request $request
      *
+     * @bodyParam email string
+     * @bodyParam password string
+     *
      * @return \Illuminate\Http\JsonResponse
      */
     public function login(Request $request) {
@@ -101,6 +107,8 @@ class AuthController extends Controller
      * Logout
      *
      * @param Request $request
+     *
+     * @authenticated
      *
      * @return \Illuminate\Http\JsonResponse
      */
