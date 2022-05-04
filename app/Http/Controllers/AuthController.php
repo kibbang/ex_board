@@ -6,6 +6,7 @@ use http\Env\Response;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Laravel\Passport\Client;
 
 class AuthController extends Controller
 {
@@ -23,17 +24,47 @@ class AuthController extends Controller
             'password' => 'required|min:8',
         ]);
 
-        $user = User::create([
+        User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
         ]);
 
-        $token = $user->createToken($request->name)->accessToken;
-
-        return response()->json(['token'=>$token], 200);
+        return response()->json(['message'=>'Register was success'], 201);
     }
 
+    /**
+     * @param string $userId
+     * @param string $password
+     * @return string|\Symfony\Component\HttpFoundation\Response
+     * @throws \Exception
+     */
+    public function createAcessToken($userId, $password) {
+        $credentials = array(
+            'email'=>$userId,
+            'password'=>$password
+        );
+
+        if (!Auth::attempt($credentials)) {
+            return 'Login attempt was failed';
+        }
+
+        $client = Client::where('password_client', 1)->first();
+
+        $data = [
+            'grant_type'=>'password',
+            'client_id'=>$client->id,
+            'client_secret'=>$client->secret,
+            'username'=>$userId,
+            'password'=>$password,
+            'scope'=>''
+        ];
+
+        $request = Request::create('/oauth/token', 'POST', $data);
+        $response = app()->handle($request);
+
+        return $response;
+    }
     /**
      * Login
      *
@@ -48,8 +79,8 @@ class AuthController extends Controller
         ];
 
         if (auth()->attempt($accessData)) {
-            $token = auth()->user()->createToken($request->name)->accessToken;
-            return response()->json(['token' => $token, 'message' => 'login Success', 'user' => auth()->user()], 200);
+            $token = $this->createAcessToken($request->email, $request->password);
+            return $token;
         } else {
             return response()->json(['error' => 'Unauthorised'], 401);
         }
@@ -63,7 +94,7 @@ class AuthController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function details() {
-        return response()->json(['user'=> Auth::user()], 200);
+        return response()->json(['user'=> Auth::user()], 201);
     }
 
     /**
@@ -76,7 +107,7 @@ class AuthController extends Controller
     public function logout(Request $request) {
         $accessToken = $request->user()->token();
         $accessToken->revoke();
-        return response()->json(['message'=> 'Successfully logout'], 200);
+        return response()->json(['message'=> 'Successfully logout'], 201);
     }
 
 }
