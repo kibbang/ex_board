@@ -18,6 +18,7 @@ class UserController extends Controller
      * Current Logined User Info
      *
      * @param Illuminate\Http\Request $request
+     * @authenticated
      *
      * @return \Illuminate\Http\JsonResponse
      */
@@ -31,6 +32,7 @@ class UserController extends Controller
      *
      * @param Request $request
      * @param $id
+     * @authenticated
      * @return \Illuminate\Http\JsonResponse
      * @throws \Illuminate\Validation\ValidationException
      */
@@ -55,6 +57,7 @@ class UserController extends Controller
      * User Delete
      *
      * @param $id
+     * @authenticated
      *
      * @return \Illuminate\Http\JsonResponse
      */

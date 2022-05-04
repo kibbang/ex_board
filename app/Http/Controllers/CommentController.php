@@ -41,6 +41,7 @@ class CommentController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int $post_id
+     * @authenticated
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request, $post_id)
@@ -87,6 +88,8 @@ class CommentController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
+     * @authenticated
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -110,6 +113,7 @@ class CommentController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
+     * @authenticated
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

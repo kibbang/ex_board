@@ -39,6 +39,7 @@ class PostController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
+     * @authenticated
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -90,6 +91,7 @@ class PostController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
+     * @authenticated
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -114,6 +116,7 @@ class PostController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
+     * @authenticated
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

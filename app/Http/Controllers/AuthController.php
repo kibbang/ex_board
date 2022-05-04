@@ -15,6 +15,10 @@ class AuthController extends Controller
      *
      * @param Illuminate\Http\Request $request
      *
+     * @bodyParam email string
+     * @bodyParam name string
+     * @bodyParam password string
+     *
      * @return \Illuminate\Http\JsonResponse
      */
     public function register(Request $request) {
@@ -70,6 +74,9 @@ class AuthController extends Controller
      *
      * @param  Illuminate\Http\Request $request
      *
+     * @bodyParam email string
+     * @bodyParam password string
+     *
      * @return \Illuminate\Http\JsonResponse
      */
     public function login(Request $request) {
@@ -101,6 +108,8 @@ class AuthController extends Controller
      * Logout
      *
      * @param Request $request
+     *
+     * @authenticated
      *
      * @return \Illuminate\Http\JsonResponse
      */
