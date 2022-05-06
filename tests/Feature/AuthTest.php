@@ -77,15 +77,67 @@ class AuthTest extends TestCase
         $this->assertEquals(1, DB::table('oauth_access_tokens')->orderByDesc('user_id')->first()->revoked);
     }
 
-//    /**
-//     * @test
-//     */
-//    public function getUserTest() {
-//        $res = $this->get('/api/user/info');
-//        \Log::debug("===================================getUserTest================================");
-//        \Log::debug(var_export($res, true));
-////        $res = $this->get('/api/user/info');
-////
-//       $res->assertSuccessful();
-//    }
+    /**
+     * Auth
+     *
+     * @return void
+     */
+    public function userAuth() {
+//        테스트 할 때 마다 유저생성 할수없으니 주석
+//        $user = User::create([
+//            'name'=> 'dev99test',
+//            'email'=> 'devTest99@test.com',
+//            'password'=> bcrypt('dev5test')
+//        ]);
+        $user = User::where('email', '007kibbang@gmail.com')->first();
+
+        if (!auth()->attempt(['email'=>$user->email, 'password'=>'dkrak1245%'])) {
+            return response(['message' => 'Login credentials are invaild']);
+        }
+
+        $accessToken = auth()->user()->createToken('authToken')->accessToken;
+        return $accessToken;
+    }
+
+    /** @test */
+    public function getUserInfo() {
+        $token = $this->userAuth();
+
+        $response = $this->withHeaders([
+            'Authorization' => 'Bearer '. $token,
+        ])->json('GET', 'api/user/info');
+
+        \Log::info(1, [$response->getContent()]);
+
+        $response->assertStatus(200);
+    }
+
+    /** @test */
+    public function updateUserInfo() {
+        $token = $this->userAuth();
+
+        $response = $this->withHeaders([
+            'Authorization' => 'Bearer '. $token,
+        ])->json('POST', 'api/user/6', [
+            'name' => 'fixName test',
+            'email' => 'fixEmail@gmail.com'
+        ]);
+
+        \Log::info(1, [$response->getContent()]);
+
+        $response->assertStatus(200);
+    }
+
+    /** @test */
+    public function deleteUserInfo() {
+        $token = $this->userAuth();
+
+        $response = $this->withHeaders([
+            'Authorization' => 'Bearer '. $token,
+        ])->json('POST', 'api/user/6');
+
+        \Log::info(1, [$response->getContent()]);
+
+        $response->assertStatus(200);
+    }
 }
