@@ -29,8 +29,8 @@ class AuthTest extends TestCase
     /** @test */
     public function registerTest() {
         $res = $this->post('/api/auth/register', [
-            'name' => 'devTestUser2',
-            'email' => 'devTest2@test.com',
+            'name' => 'devTestUser5',
+            'email' => 'devTest5@test.com',
             'password'=> 'testtest12'
         ]);
 
@@ -42,7 +42,7 @@ class AuthTest extends TestCase
      */
     public function loginTest() {
         $formData = [
-            'email' => 'devTest2@test.com',
+            'email' => 'devTest5@test.com',
             'password' => 'testtest12'
         ];
 
@@ -74,7 +74,7 @@ class AuthTest extends TestCase
         $response = $this->post('/api/auth/logout', [], ['Authorization' => 'Bearer ' . $token]);
         $response->assertStatus(Response::HTTP_OK)
             ->assertJsonStructure(['message']);
-        $this->assertEquals(1, DB::table('oauth_access_tokens')->orderByDesc('created_at')->first()->revoked);
+        $this->assertEquals(1, DB::table('oauth_access_tokens')->orderByDesc('user_id')->first()->revoked);
     }
 
 //    /**
