@@ -63,11 +63,9 @@ class PostTest extends TestCase
 
     /** @test */
     public function getAllPosts() {
-        $token = $this->userAuth();
+//        $token = $this->userAuth();
 
-        $response = $this->withHeaders([
-            'Authorization' => 'Bearer '. $token,
-        ])->json('GET', 'api/posts');
+        $response = $this->json('GET', 'api/posts');
 
         \Log::info(1, [$response->getContent()]);
 
@@ -76,8 +74,7 @@ class PostTest extends TestCase
 
     /** @test */
     public function getPostDetail() {
-        $response = $this->withHeaders([
-        ])->json('GET', 'api/posts/2');
+        $response = $this->json('GET', 'api/posts/2');
 
         \Log::info(1, [$response->getContent()]);
 
