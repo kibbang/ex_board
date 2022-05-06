@@ -42,7 +42,7 @@ class AuthController extends Controller
      * @return string|\Symfony\Component\HttpFoundation\Response
      * @throws \Exception
      */
-    public function createAcessToken($userId, $password) {
+    public function createAccessToken($userId, $password) {
         $credentials = array(
             'email'=>$userId,
             'password'=>$password
@@ -85,7 +85,7 @@ class AuthController extends Controller
         ];
 
         if (auth()->attempt($accessData)) {
-            $token = $this->createAcessToken($request->email, $request->password);
+            $token = $this->createAccessToken($request->email, $request->password);
             return $token;
         } else {
             return response()->json(['error' => 'Unauthorised'], 401);
@@ -100,7 +100,7 @@ class AuthController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function details() {
-        return response()->json(['user'=> Auth::user()], 201);
+        return response()->json(['user'=> Auth::user()], 200);
     }
 
     /**
@@ -115,7 +115,7 @@ class AuthController extends Controller
     public function logout(Request $request) {
         $accessToken = $request->user()->token();
         $accessToken->revoke();
-        return response()->json(['message'=> 'Successfully logout'], 201);
+        return response()->json(['message'=> 'Successfully logout'], 200);
     }
 
 }
