@@ -51,18 +51,6 @@ class AuthTest extends TestCase
         $res->assertStatus(Response::HTTP_OK);
     }
 
-//    /** @test */
-//    public function currentUserInfo() {
-//        $formData = [
-//            'email' => 'devTest2@test.com',
-//            'password' => 'testtest12'
-//        ];
-//
-//        $res = $this->post('/api/auth/login', $formData);
-//
-//        \Log::debug(var_export($res, true));
-//    }
-
     /**
      * @test
      */
