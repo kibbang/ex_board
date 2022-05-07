@@ -95,11 +95,15 @@ class CommentController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $comment = Comment::findOrFail($id);
+
         $this->validate($request, [
             'comment' => 'required',
         ]);
 
-        $comment = Comment::findOrFail($id);
+        if($comment->user_id !== Auth::id()) {
+            return response()->json(['error' => 'You can not update this comment']);
+        }
 
         $comment->update([
             'comment' => $request->comment,
@@ -119,6 +123,10 @@ class CommentController extends Controller
     public function destroy($id)
     {
         //
+        if($id !== Auth::id()) {
+            return response()->json(['error' => 'You can not delete this comment']);
+        }
+
         Comment::where('id', $id)->delete();
 
         return response()->json(['message' => 'Comment was uccessfully deleted']);
