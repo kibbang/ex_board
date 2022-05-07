@@ -19,10 +19,25 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-        return Post::all();
+        // Base Query
+        $query = Post::select();
+
+        // post search
+        $params = $request->all();
+
+        if(!empty($params['title'])) {
+            $query->where('title', 'like', '%' .$params['title']. '%');
+        } else if(!empty($params['email'])) {
+            $query->join('users', 'users.id', '=', 'posts.user_id')
+                ->select('posts.*')
+                ->where('users.email', 'like', '%' .$params['email']. '%' );
+        }
+
+        $postList = $query->get();
+
+        return $postList;
     }
 
     /**
@@ -70,7 +85,7 @@ class PostController extends Controller
     public function show($id)
     {
         //
-        $post = Post::where('id', $id)->first();
+        $post = Post::where('id', $id)->with('comment')->first();
 
         return $post;
     }
@@ -100,9 +115,10 @@ class PostController extends Controller
         //
         $post = Post::findOrFail($id);
 
-//        $data = $request->all();
-//
-//        $post->fill($data)->save();
+        if($post->user_id !== Auth::id()) {
+            return response()->json(['error' => 'You can not update this post']);
+        }
+
         $post->update([
             'title'=>$request->title,
             'body'=>$request->body,
@@ -123,6 +139,10 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
+        if($id !== Auth::id()) {
+            return response()->json(['error' => 'You can not delete this post']);
+        }
+
         Post::where('id', $id)->delete();
 
         return response()->json(['message' => 'Successfully deleted']);
