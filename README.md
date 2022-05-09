@@ -49,4 +49,12 @@ config파일 수정 했을 경우
 
 php artisan scribe:generate 로 refresh
 
+시드데이터 만들기
+
+php artisan db:seed --class=UserTableSeeder
+
+php artisan db:seed --class=PostTableSeeder
+
+php artisan db:seed --class=CommentTableSeeder
+
 
