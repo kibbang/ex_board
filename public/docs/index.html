@@ -146,7 +146,7 @@
                             <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
                     </ul>
         <ul class="toc-footer" id="last-updated">
-        <li>Last updated: May 4 2022</li>
+        <li>Last updated: May 9 2022</li>
     </ul>
 </div>
 
@@ -186,9 +186,9 @@ You can switch the language used with the tabs at the top right (or from the nav
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"provident\",
-    \"name\": \"aut\",
-    \"password\": \"non\"
+    \"email\": \"aperiam\",
+    \"name\": \"rem\",
+    \"password\": \"voluptate\"
 }"
 </code></pre></div>
 
@@ -204,9 +204,9 @@ const headers = {
 };
 
 let body = {
-    "email": "provident",
-    "name": "aut",
-    "password": "non"
+    "email": "aperiam",
+    "name": "rem",
+    "password": "voluptate"
 };
 
 fetch(url, {
@@ -264,7 +264,7 @@ fetch(url, {
                 <input type="text"
                name="email"
                data-endpoint="POSTapi-auth-register"
-               value="provident"
+               value="aperiam"
                data-component="body" hidden>
     <br>
 
@@ -274,7 +274,7 @@ fetch(url, {
                 <input type="text"
                name="name"
                data-endpoint="POSTapi-auth-register"
-               value="aut"
+               value="rem"
                data-component="body" hidden>
     <br>
 
@@ -284,7 +284,7 @@ fetch(url, {
                 <input type="text"
                name="password"
                data-endpoint="POSTapi-auth-register"
-               value="non"
+               value="voluptate"
                data-component="body" hidden>
     <br>
 
@@ -308,8 +308,8 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"dignissimos\",
-    \"password\": \"quaerat\"
+    \"email\": \"et\",
+    \"password\": \"fuga\"
 }"
 </code></pre></div>
 
@@ -325,8 +325,8 @@ const headers = {
 };
 
 let body = {
-    "email": "dignissimos",
-    "password": "quaerat"
+    "email": "et",
+    "password": "fuga"
 };
 
 fetch(url, {
@@ -384,7 +384,7 @@ fetch(url, {
                 <input type="text"
                name="email"
                data-endpoint="POSTapi-auth-login"
-               value="dignissimos"
+               value="et"
                data-component="body" hidden>
     <br>
 
@@ -394,7 +394,7 @@ fetch(url, {
                 <input type="text"
                name="password"
                data-endpoint="POSTapi-auth-login"
-               value="quaerat"
+               value="fuga"
                data-component="body" hidden>
     <br>
 
@@ -606,14 +606,14 @@ access-control-allow-origin: *
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8080/api/user/12" \
+    "http://localhost:8080/api/user/20" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8080/api/user/12"
+    "http://localhost:8080/api/user/20"
 );
 
 const headers = {
@@ -683,7 +683,7 @@ fetch(url, {
                 <input type="number"
                name="id"
                data-endpoint="POSTapi-user--id-"
-               value="12"
+               value="20"
                data-component="url" hidden>
     <br>
 <p>The ID of the user.</p>
@@ -745,10 +745,10 @@ access-control-allow-origin: *
     {
         &quot;id&quot;: 2,
         &quot;user_id&quot;: 7,
-        &quot;title&quot;: &quot;modify title&quot;,
-        &quot;body&quot;: &quot;modify body&quot;,
+        &quot;title&quot;: &quot;Modify title in 0506&quot;,
+        &quot;body&quot;: &quot;Modify body in 0506&quot;,
         &quot;created_at&quot;: &quot;2022-05-03T06:53:41.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2022-05-03T06:56:25.000000Z&quot;
+        &quot;updated_at&quot;: &quot;2022-05-06T08:49:20.000000Z&quot;
     },
     {
         &quot;id&quot;: 3,
@@ -887,14 +887,6 @@ access-control-allow-origin: *
         &quot;updated_at&quot;: &quot;2022-05-04T09:30:37.000000Z&quot;
     },
     {
-        &quot;id&quot;: 20,
-        &quot;user_id&quot;: 7,
-        &quot;title&quot;: &quot;Prof.&quot;,
-        &quot;body&quot;: &quot;Voluptas eaque alias suscipit eligendi magnam praesentium. Expedita fugit necessitatibus consequatur fugiat.&quot;,
-        &quot;created_at&quot;: &quot;2022-05-04T09:30:37.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2022-05-04T09:30:37.000000Z&quot;
-    },
-    {
         &quot;id&quot;: 21,
         &quot;user_id&quot;: 33,
         &quot;title&quot;: &quot;Mrs.&quot;,
@@ -909,6 +901,14 @@ access-control-allow-origin: *
         &quot;body&quot;: &quot;Et modi non autem non est et asperiores. Qui et id esse error beatae. Quis reprehenderit et voluptatem nihil omnis. Repudiandae omnis non rerum quo velit provident.&quot;,
         &quot;created_at&quot;: &quot;2022-05-04T09:30:37.000000Z&quot;,
         &quot;updated_at&quot;: &quot;2022-05-04T09:30:37.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 23,
+        &quot;user_id&quot;: 64,
+        &quot;title&quot;: &quot;TestCode Test Title&quot;,
+        &quot;body&quot;: &quot;TestCode Test Body&quot;,
+        &quot;created_at&quot;: &quot;2022-05-06T08:22:31.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2022-05-06T08:22:31.000000Z&quot;
     }
 ]</code>
  </pre>
@@ -1149,14 +1149,14 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8080/api/posts/10" \
+    --get "http://localhost:8080/api/posts/13" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8080/api/posts/10"
+    "http://localhost:8080/api/posts/13"
 );
 
 const headers = {
@@ -1235,7 +1235,7 @@ access-control-allow-origin: *
                 <input type="number"
                name="id"
                data-endpoint="GETapi-posts--id-"
-               value="10"
+               value="13"
                data-component="url" hidden>
     <br>
 <p>The ID of the post.</p>
@@ -1255,14 +1255,14 @@ access-control-allow-origin: *
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8080/api/posts/15/edit" \
+    --get "http://localhost:8080/api/posts/6/edit" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8080/api/posts/15/edit"
+    "http://localhost:8080/api/posts/6/edit"
 );
 
 const headers = {
@@ -1341,7 +1341,7 @@ access-control-allow-origin: *
                 <input type="number"
                name="post"
                data-endpoint="GETapi-posts--post--edit"
-               value="15"
+               value="6"
                data-component="url" hidden>
     <br>
 
@@ -1464,14 +1464,14 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8080/api/posts/1" \
+    "http://localhost:8080/api/posts/6" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8080/api/posts/1"
+    "http://localhost:8080/api/posts/6"
 );
 
 const headers = {
@@ -1541,7 +1541,7 @@ fetch(url, {
                 <input type="number"
                name="id"
                data-endpoint="DELETEapi-posts--id-"
-               value="1"
+               value="6"
                data-component="url" hidden>
     <br>
 <p>The ID of the post.</p>
@@ -1561,14 +1561,14 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8080/api/posts/4/comments" \
+    --get "http://localhost:8080/api/posts/1/comments" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8080/api/posts/4/comments"
+    "http://localhost:8080/api/posts/1/comments"
 );
 
 const headers = {
@@ -1647,7 +1647,7 @@ access-control-allow-origin: *
                 <input type="number"
                name="post_id"
                data-endpoint="GETapi-posts--post_id--comments"
-               value="4"
+               value="1"
                data-component="url" hidden>
     <br>
 <p>The ID of the post.</p>
@@ -1667,14 +1667,14 @@ access-control-allow-origin: *
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8080/api/posts/11/comments/create" \
+    --get "http://localhost:8080/api/posts/2/comments/create" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8080/api/posts/11/comments/create"
+    "http://localhost:8080/api/posts/2/comments/create"
 );
 
 const headers = {
@@ -1753,7 +1753,7 @@ access-control-allow-origin: *
                 <input type="number"
                name="post"
                data-endpoint="GETapi-posts--post--comments-create"
-               value="11"
+               value="2"
                data-component="url" hidden>
     <br>
 
@@ -1774,14 +1774,14 @@ access-control-allow-origin: *
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8080/api/posts/11/comments" \
+    "http://localhost:8080/api/posts/2/comments" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8080/api/posts/11/comments"
+    "http://localhost:8080/api/posts/2/comments"
 );
 
 const headers = {
@@ -1851,7 +1851,7 @@ fetch(url, {
                 <input type="number"
                name="post"
                data-endpoint="POSTapi-posts--post--comments"
-               value="11"
+               value="2"
                data-component="url" hidden>
     <br>
 
@@ -1871,14 +1871,14 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8080/api/comments/4" \
+    --get "http://localhost:8080/api/comments/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8080/api/comments/4"
+    "http://localhost:8080/api/comments/1"
 );
 
 const headers = {
@@ -1957,7 +1957,7 @@ access-control-allow-origin: *
                 <input type="number"
                name="id"
                data-endpoint="GETapi-comments--id-"
-               value="4"
+               value="1"
                data-component="url" hidden>
     <br>
 <p>The ID of the comment.</p>
@@ -1977,14 +1977,14 @@ access-control-allow-origin: *
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8080/api/comments/16/edit" \
+    --get "http://localhost:8080/api/comments/8/edit" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8080/api/comments/16/edit"
+    "http://localhost:8080/api/comments/8/edit"
 );
 
 const headers = {
@@ -2063,7 +2063,7 @@ access-control-allow-origin: *
                 <input type="number"
                name="comment"
                data-endpoint="GETapi-comments--comment--edit"
-               value="16"
+               value="8"
                data-component="url" hidden>
     <br>
 
@@ -2084,14 +2084,14 @@ access-control-allow-origin: *
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8080/api/comments/13" \
+    "http://localhost:8080/api/comments/9" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8080/api/comments/13"
+    "http://localhost:8080/api/comments/9"
 );
 
 const headers = {
@@ -2165,7 +2165,7 @@ fetch(url, {
                 <input type="number"
                name="id"
                data-endpoint="PUTapi-comments--id-"
-               value="13"
+               value="9"
                data-component="url" hidden>
     <br>
 <p>The ID of the comment.</p>
@@ -2186,14 +2186,14 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8080/api/comments/18" \
+    "http://localhost:8080/api/comments/20" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8080/api/comments/18"
+    "http://localhost:8080/api/comments/20"
 );
 
 const headers = {
@@ -2263,7 +2263,7 @@ fetch(url, {
                 <input type="number"
                name="id"
                data-endpoint="DELETEapi-comments--id-"
-               value="18"
+               value="20"
                data-component="url" hidden>
     <br>
 <p>The ID of the comment.</p>
@@ -2284,14 +2284,14 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8080/api/user/12" \
+    "http://localhost:8080/api/user/9" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8080/api/user/12"
+    "http://localhost:8080/api/user/9"
 );
 
 const headers = {
@@ -2361,7 +2361,7 @@ fetch(url, {
                 <input type="number"
                name="id"
                data-endpoint="DELETEapi-user--id-"
-               value="12"
+               value="9"
                data-component="url" hidden>
     <br>
 <p>The ID of the user.</p>
